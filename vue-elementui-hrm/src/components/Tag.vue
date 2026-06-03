@@ -1,16 +1,18 @@
 <template>
-  <div class="tag">
-    <el-tag
-      size="mini"
-      v-for="(item, index) in tagList"
-      :key="index"
-      :closable="item.code !== 'home'"
-      :effect="$route.name === item.code ? 'dark' : 'plain'"
-      @click="clickTag(item)"
-      @close="closeTag(item, index)"
-    >{{ item.name }}
-    </el-tag
-    >
+  <div class="tag-container">
+    <transition-group name="tag" tag="div" class="tag">
+      <el-tag
+        size="mini"
+        v-for="(item, index) in tagList"
+        :key="item.code"
+        :closable="item.code !== 'home'"
+        :effect="$route.name === item.code ? 'dark' : 'plain'"
+        :class="{ 'tag-active': $route.name === item.code }"
+        @click="clickTag(item)"
+        @close="closeTag(item, index)"
+      >{{ item.name }}
+      </el-tag>
+    </transition-group>
   </div>
 </template>
 
@@ -51,13 +53,59 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.tag-container {
+  padding: 8px 16px;
+  background: var(--header-bg, #fff);
+  border-bottom: 1px solid var(--border-color, #ebeef5);
+  margin: 0;
+}
+
 .tag {
-  padding: 10px;
-  margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 
   .el-tag {
-    margin-right: 15px;
     cursor: pointer;
+    border-radius: 16px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border: 1px solid var(--border-color, #ebeef5) !important;
+    background: #fff !important;
+
+    &:hover {
+      color: var(--color-primary, #409EFF) !important;
+      border-color: var(--color-primary, #409EFF) !important;
+      background: rgba(64, 158, 255, 0.06) !important;
+      transform: translateY(-1px);
+    }
+
+    &.tag-active {
+      background: var(--color-primary, #409EFF) !important;
+      color: #fff !important;
+      border-color: var(--color-primary, #409EFF) !important;
+      box-shadow: 0 2px 8px rgba(64, 158, 255, 0.35);
+    }
   }
+}
+
+// Tag transition animations
+.tag-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tag-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tag-enter {
+  opacity: 0;
+  transform: translateX(20px) scale(0.8);
+}
+.tag-leave-to {
+  opacity: 0;
+  transform: translateX(-10px) scale(0.8);
+}
+.tag-move {
+  transition: transform 0.3s ease;
 }
 </style>

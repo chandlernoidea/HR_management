@@ -1,10 +1,85 @@
+// ============================================
+// Table Styles
+// ============================================
 .common-table {
   height: calc(100% - 62px);
-  background-color: white;
+  background-color: var(--card-bg);
   position: relative;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+
   .pager {
     position: absolute;
     bottom: 20px;
     right: 20px;
+  }
+}
+
+// Better table header
+.el-table {
+  border-radius: var(--card-radius) !important;
+  overflow: hidden;
+
+  th.el-table__cell {
+    background-color: #f8f9fc !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    font-size: 13px;
+    border-bottom: 2px solid var(--border-color) !important;
+  }
+
+  // Row hover
+  tr {
+    transition: background-color var(--transition-fast);
+
+    &:hover > td {
+      background-color: rgba(64, 158, 255, 0.04) !important;
+    }
+  }
+
+  // Striped rows
+  .el-table__row--striped td {
+    background-color: #fafbfc !important;
+  }
+
+  td {
+    transition: background-color var(--transition-fast);
+  }
+}
+
+// Better pagination
+.el-pagination {
+  .el-pager li {
+    border-radius: var(--border-radius) !important;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      color: var(--color-primary) !important;
+    }
+
+    &.active {
+      background-color: var(--color-primary) !important;
+      color: #fff !important;
+      box-shadow: 0 2px 6px rgba(64, 158, 255, 0.35);
+    }
+  }
+
+  .btn-prev, .btn-next {
+    border-radius: var(--border-radius) !important;
+  }
+}
+
+// Search form styling
+.manage-header {
+  .el-form {
+    background: var(--card-bg);
+    padding: 16px 20px;
+    border-radius: var(--card-radius);
+    margin-bottom: 16px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .el-form-item {
+    margin-bottom: 0;
   }
 }

@@ -605,14 +605,34 @@ header {
 
   .el-button {
     margin-right: 20px;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      transform: rotate(90deg);
+      background-color: var(--color-primary, #409EFF) !important;
+      border-color: var(--color-primary, #409EFF) !important;
+    }
   }
 }
 
 .r-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
   .avatar {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
+    border: 2px solid rgba(64, 158, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      border-color: var(--color-primary, #409EFF);
+      box-shadow: 0 2px 12px rgba(64, 158, 255, 0.3);
+    }
   }
 }
 

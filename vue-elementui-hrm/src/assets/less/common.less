@@ -1,3 +1,6 @@
+// ============================================
+// Common Styles
+// ============================================
 .manage {
   height: 90%;
   padding-bottom: 20px;
@@ -7,4 +10,95 @@
     justify-content: space-between;
     align-items: flex-start;
   }
+}
+
+// ============================================
+// Card Hover Effects
+// ============================================
+.card-hover {
+  transition: all var(--transition-normal);
+  border-radius: var(--card-radius);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+  }
+}
+
+// Apply to all el-cards globally
+.el-card {
+  border-radius: var(--card-radius) !important;
+  border: none !important;
+  box-shadow: var(--card-shadow) !important;
+  transition: all var(--transition-normal) !important;
+
+  &:hover {
+    box-shadow: var(--card-shadow-hover) !important;
+  }
+}
+
+// ============================================
+// Element UI Overrides
+// ============================================
+
+// Better dialog
+.el-dialog {
+  border-radius: 12px !important;
+  overflow: hidden;
+
+  .el-dialog__header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px;
+  }
+
+  .el-dialog__footer {
+    border-top: 1px solid var(--border-color);
+    padding: 12px 20px;
+  }
+}
+
+// Better buttons
+.el-button {
+  border-radius: var(--border-radius) !important;
+  transition: all var(--transition-fast) !important;
+  font-weight: 500;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.el-button--primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)) !important;
+  border: none !important;
+
+  &:hover {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary)) !important;
+    box-shadow: 0 4px 12px rgba(64, 158, 255, 0.4);
+  }
+}
+
+// Better inputs on focus
+.el-input__inner {
+  transition: all var(--transition-fast) !important;
+  border-radius: var(--border-radius) !important;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.15);
+  }
+}
+
+// Better tags
+.el-tag {
+  border-radius: 12px !important;
+  border: none !important;
+  font-weight: 500;
+}
+
+// ============================================
+// Page Container
+// ============================================
+.page-container {
+  padding: 20px;
+  animation: stagger-in 0.4s ease both;
 }

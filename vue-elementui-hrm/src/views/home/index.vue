@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="page-container">
     <el-row class="home" :gutter="20">
       <el-col :span="8" style="margin-top: 20px">
-        <el-card shadow="hover">
+        <el-card shadow="hover" class="stagger-item">
           <div class="user">
-
             <el-upload style="margin-bottom: -120px;margin-right: -10px"
                        :action="uploadApi" :headers="headers" :show-file-list="false" :multiple="false"
                        :on-success="handleUploadSuccess"
@@ -23,13 +22,12 @@
             <p>部门：<span>{{ staff.deptName }}</span></p>
           </div>
         </el-card>
-        <el-card style="margin-top: 20px;height:487px">
+        <el-card style="margin-top: 20px;height:487px" class="stagger-item">
           <el-calendar v-model="attendanceData.date">
             <template
               slot="dateCell"
               slot-scope="{date, data}">
               <span>{{ date.getDate() }}</span>
-              <!-- 使用v-if避免在没有数据的时候显示解析-->
               <el-tag v-show="data.type==='current-month'" v-if="attendanceData.list[date.getDate() - 1]"
                       :type="attendanceData.list[date.getDate() - 1].tagType">
                 {{ attendanceData.list[date.getDate() - 1].message }}
@@ -40,22 +38,22 @@
       </el-col>
       <el-col :span="16" style="margin-top: 20px">
         <div class="num">
-          <el-card v-for="(item,index) in countData" :key="index" :body-style="{ display: 'flex', padding: 0 }">
-            <i class="icon" :class="'el-icon-' +item.icon" :style="{ background: item.color }"/>
+          <el-card v-for="(item,index) in countData" :key="index" :body-style="{ display: 'flex', padding: 0 }" class="stat-card">
+            <i class="icon" :class="'el-icon-' +item.icon" :style="{ background: 'linear-gradient(135deg, ' + item.color + ', ' + item.color + 'dd)' }"/>
             <div class="detail">
               <p class="txt" style=" margin-bottom: 5px">{{ item.name }}</p>
               <p class="num">{{ item.value }}</p>
             </div>
           </el-card>
         </div>
-        <el-card style="height: 300px">
+        <el-card style="height: 300px" class="stagger-item chart-card">
           <div style="height: 300px" ref="city"></div>
         </el-card>
         <div class="graph">
-          <el-card style="height: 300px">
+          <el-card style="height: 300px" class="stagger-item chart-card">
             <div style="height: 300px" ref="staff"></div>
           </el-card>
-          <el-card style="height: 300px">
+          <el-card style="height: 300px" class="stagger-item chart-card">
             <div style="height: 300px" ref="department"></div>
           </el-card>
         </div>
@@ -367,6 +365,41 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.page-container {
+  padding: 0;
+  animation: stagger-in 0.4s ease both;
+}
+
+@keyframes stagger-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-item {
+  animation: stagger-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  &:nth-child(1) { animation-delay: 0.05s; }
+  &:nth-child(2) { animation-delay: 0.10s; }
+  &:nth-child(3) { animation-delay: 0.15s; }
+  &:nth-child(4) { animation-delay: 0.20s; }
+}
+
+.stat-card {
+  animation: stagger-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  &:nth-child(1) { animation-delay: 0.05s; }
+  &:nth-child(2) { animation-delay: 0.10s; }
+  &:nth-child(3) { animation-delay: 0.15s; }
+  &:nth-child(4) { animation-delay: 0.20s; }
+  &:nth-child(5) { animation-delay: 0.25s; }
+  &:nth-child(6) { animation-delay: 0.30s; }
+}
+
+.chart-card {
+  animation: stagger-in 0.5s ease both;
+  animation-delay: 0.35s;
+}
+</style>
 
 <style>
 .el-calendar-table .el-calendar-day {

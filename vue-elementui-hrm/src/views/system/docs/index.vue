@@ -85,7 +85,7 @@
       <el-table
         ref="table"
         :data="table.tableData"
-        height="85%"
+        
         border
         stripe
         row-key="id"

@@ -105,7 +105,7 @@
     <div class="common-table">
       <el-table
         :data="table.tableData"
-        height="85%"
+        
         border
         stripe
         row-key="id"

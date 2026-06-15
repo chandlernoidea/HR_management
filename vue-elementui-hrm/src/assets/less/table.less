@@ -2,16 +2,30 @@
 // Table Styles
 // ============================================
 .common-table {
-  height: calc(100% - 62px);
+  flex: 1;
+  min-height: 0;
   background-color: var(--card-bg);
   position: relative;
   border-radius: var(--card-radius);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .el-table {
+    flex: 1;
+    min-height: 0;
+
+    &::before {
+      height: 0;
+    }
+  }
 
   .pager {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    flex-shrink: 0;
+    padding: 12px 20px;
+    text-align: right;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
   }
 }
 

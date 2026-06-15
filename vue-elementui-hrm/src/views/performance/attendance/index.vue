@@ -72,7 +72,7 @@
       <el-table
         ref="table"
         :data="table.tableData"
-        height="85%"
+        
         border
         stripe
         row-key="id"
@@ -278,17 +278,3 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-.common-table {
-  height: calc(100% - 62px);
-  background-color: white;
-  position: relative;
-
-  .pager {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-  }
-}
-
-</style>

@@ -370,6 +370,8 @@ export default {
 .page-container {
   padding: 0;
   animation: stagger-in 0.4s ease both;
+  height: 100%;           // 新增：确保容器占满高度
+  overflow-y: auto;       // 新增：允许垂直滚动
 }
 
 @keyframes stagger-in {

@@ -1,37 +1,40 @@
 // ============================================
-// Home Page Styles
+// Home Page Styles - macOS 12
 // ============================================
 .home {
   .user {
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
     border-bottom: 1px solid var(--border-color);
 
     img {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      margin-right: 30px;
+      margin-right: var(--spacing-2xl);
       border: 3px solid var(--color-primary);
-      padding: 3px;
+      padding: 2px;
       transition: transform var(--transition-normal);
+      object-fit: cover;
 
       &:hover {
         transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.25);
       }
     }
 
-    &info {
+    .info {
       .name {
-        font-size: 28px;
-        margin-bottom: 10px;
+        font-size: 24px;
+        margin-bottom: var(--spacing-md);
         font-weight: 600;
         color: var(--text-primary);
       }
       .access {
         color: var(--text-secondary);
+        font-size: 13px;
       }
     }
   }
@@ -39,11 +42,12 @@
   .login-info {
     p {
       line-height: 32px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-secondary);
       span {
-        color: var(--text-regular);
-        margin-left: 60px;
+        color: var(--text-primary);
+        margin-left: var(--spacing-xl);
+        font-weight: 500;
       }
     }
   }
@@ -52,12 +56,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: var(--spacing-lg);
 
     .el-card {
-      width: 32%;
-      margin-bottom: 20px;
+      width: calc(33.333% - var(--spacing-md));
+      margin-bottom: 0;
       animation: stagger-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
       overflow: hidden;
+      display: flex;
+      align-items: stretch;
 
       &:nth-child(1) { animation-delay: 0.05s; }
       &:nth-child(2) { animation-delay: 0.10s; }
@@ -65,73 +72,101 @@
       &:nth-child(4) { animation-delay: 0.20s; }
       &:nth-child(5) { animation-delay: 0.25s; }
       &:nth-child(6) { animation-delay: 0.30s; }
+
+      &:hover {
+        transform: translateY(-4px);
+      }
     }
 
     .icon {
-      font-size: 30px;
-      width: 80px;
-      height: 80px;
-      text-align: center;
-      line-height: 80px;
+      font-size: 28px;
+      width: 70px;
+      height: 100%;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
-      border-radius: 8px 0 0 8px;
+      border-radius: 0;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
       transition: transform var(--transition-normal);
+      flex-shrink: 0;
 
       &:hover {
-        transform: scale(1.08);
+        transform: scale(1.05);
       }
     }
 
     .detail {
-      margin-left: 15px;
+      margin-left: var(--spacing-lg);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      flex: 1;
 
       .num {
-        font-size: 30px;
-        margin-bottom: 10px;
+        font-size: 26px;
+        margin-bottom: var(--spacing-md);
         font-weight: 700;
         color: var(--text-primary);
         animation: count-up 0.6s ease both;
         animation-delay: 0.4s;
       }
       .txt {
-        font-size: 13px;
-        text-align: center;
+        font-size: 12px;
         color: var(--text-secondary);
       }
     }
   }
 
   .graph {
-    margin-top: 20px;
+    margin-top: var(--spacing-xl);
     display: flex;
     justify-content: space-between;
+    gap: var(--spacing-lg);
 
     .el-card {
-      width: 48%;
+      flex: 1;
       animation: stagger-in 0.5s ease both;
       animation-delay: 0.35s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
     }
   }
 }
 
 // Calendar improvements
 .el-calendar-table .el-calendar-day {
-  height: 54px;
+  height: 48px;
 }
 
 .el-calendar {
   border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
 
   .el-calendar__header {
     border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(245, 245, 247, 0.8));
   }
 
   .el-calendar-day {
+    font-size: 13px;
+    transition: all var(--transition-fast);
+
     &:hover {
-      background-color: rgba(64, 158, 255, 0.05);
+      background-color: rgba(0, 122, 255, 0.08);
+      border-radius: var(--border-radius-sm);
     }
+
+    &.is-selected {
+      background-color: rgba(0, 122, 255, 0.15);
+    }
+  }
+
+  .el-calendar__button-group {
+    padding: var(--spacing-lg);
   }
 }

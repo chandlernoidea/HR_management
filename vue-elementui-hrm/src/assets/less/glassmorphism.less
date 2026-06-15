@@ -1,0 +1,102 @@
+// ============================================
+// Glassmorphism (毛玻璃效果) - macOS 12 Style
+// ============================================
+
+// 基础毛玻璃效果混入
+.glass-effect(@blur: 30px, @opacity: 0.9) {
+  background: rgba(255, 255, 255, @opacity);
+  backdrop-filter: blur(@blur);
+  -webkit-backdrop-filter: blur(@blur);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+// 深色毛玻璃效果
+.glass-effect-dark(@blur: 30px, @opacity: 0.9) {
+  background: rgba(28, 28, 30, @opacity);
+  backdrop-filter: blur(@blur);
+  -webkit-backdrop-filter: blur(@blur);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Header 毛玻璃
+.glass-header {
+  .glass-effect(var(--header-blur), 0.95);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+// Card 毛玻璃
+.glass-card {
+  .glass-effect(var(--card-blur), 0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 122, 255, 0.2);
+  }
+}
+
+// Modal 毛玻璃
+.glass-modal {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+// Sidebar 毛玻璃（暗色）
+.glass-sidebar {
+  .glass-effect-dark(var(--header-blur), 0.92);
+  background: linear-gradient(180deg, rgba(28, 28, 30, 0.95) 0%, rgba(44, 44, 46, 0.95) 100%) !important;
+}
+
+// Dropdown 毛玻璃
+.glass-dropdown {
+  .glass-effect(var(--card-blur), 0.96);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+// 柔和阴影集合
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-lg {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-xl {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+// 平滑过渡
+.transition-all {
+  transition: all var(--transition-normal);
+}
+
+.transition-fast {
+  transition: all var(--transition-fast);
+}
+
+.transition-slow {
+  transition: all var(--transition-slow);
+}
+
+// 圆角标准化
+.rounded-sm {
+  border-radius: var(--border-radius-sm);
+}
+
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+.rounded-lg {
+  border-radius: var(--border-radius-lg);
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}

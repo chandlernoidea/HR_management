@@ -113,7 +113,7 @@ export default {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 75%, #4facfe 100%);
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
 }
@@ -180,52 +180,58 @@ export default {
   }
 }
 
-// Glassmorphism card
+// Glassmorphism card - macOS style
 .login-card {
   position: relative;
   z-index: 1;
-  width: 420px;
-  padding: 40px 36px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
+  width: 380px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
   animation: card-slide-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .login-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .login-logo {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 12px;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
   animation: pulse 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .login-title {
   color: #fff;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
-  margin: 0 0 6px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  letter-spacing: 2px;
-}
-
-.login-subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  margin: 0;
+  margin: 0 0 8px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   letter-spacing: 1px;
 }
 
+.login-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
 .login-form {
-  margin-top: 10px;
+  margin-top: 24px;
 }
 
 .login-input {
@@ -233,9 +239,12 @@ export default {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
-    border-radius: 8px;
-    height: 42px;
+    border-radius: 12px;
+    height: 44px;
+    padding: 8px 12px;
+    font-size: 13px;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.6);
@@ -244,7 +253,12 @@ export default {
     &:focus {
       background: rgba(255, 255, 255, 0.3);
       border-color: rgba(255, 255, 255, 0.6);
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
     }
   }
 
@@ -261,37 +275,43 @@ export default {
 
 .login-code {
   flex-shrink: 0;
-  height: 42px;
-  border-radius: 8px;
+  width: 100px;
+  height: 44px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.4);
   }
 
   img {
-    height: 42px;
-    border-radius: 8px;
+    width: 100%;
+    height: 44px;
+    border-radius: 12px;
     display: block;
+    object-fit: cover;
   }
 }
 
 .login-btn {
   height: 44px !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
-  letter-spacing: 4px;
-  border-radius: 8px !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  letter-spacing: 2px;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  color: #fff !important;
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 
   &:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2)) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
   }
 

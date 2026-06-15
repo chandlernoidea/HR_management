@@ -1,0 +1,190 @@
+// ============================================
+// Form Styles - macOS 12 Theme
+// ============================================
+
+// Form containers
+.el-form {
+  background: var(--card-bg);
+  padding: var(--spacing-xl);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+.el-form-item {
+  margin-bottom: var(--spacing-lg);
+}
+
+.el-form-item__label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+// Input fields
+.el-input__wrapper {
+  border-radius: var(--border-radius) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.el-input__inner,
+.el-textarea__inner {
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--border-radius) !important;
+  padding: 8px 12px !important;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all var(--transition-fast) !important;
+  font-size: 13px;
+
+  &:focus {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1) !important;
+  }
+
+  &:hover:not(:focus) {
+    border-color: var(--border-color);
+    background: #FFFFFF;
+  }
+}
+
+// Select fields
+.el-select {
+  width: 100%;
+
+  .el-input__inner {
+    border-radius: var(--border-radius) !important;
+  }
+}
+
+.el-select-dropdown {
+  border-radius: var(--border-radius) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  overflow: hidden;
+}
+
+.el-option {
+  padding: 8px 16px;
+  font-size: 13px;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background-color: rgba(0, 122, 255, 0.08);
+    color: var(--color-primary);
+  }
+
+  &.selected {
+    background-color: rgba(0, 122, 255, 0.15);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+}
+
+// Date picker
+.el-date-picker {
+  .el-input__inner {
+    border-radius: var(--border-radius) !important;
+  }
+}
+
+.el-picker-panel {
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+// Checkbox
+.el-checkbox__input {
+  .el-checkbox__inner {
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: #FFFFFF;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
+  }
+
+  &.is-checked .el-checkbox__inner {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+}
+
+// Radio
+.el-radio__input {
+  .el-radio__inner {
+    border: 1px solid var(--border-color);
+    background: #FFFFFF;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
+  }
+
+  &.is-checked .el-radio__inner {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+}
+
+// Switch
+.el-switch {
+  &.is-checked {
+    .el-switch__core {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  }
+}
+
+// Upload
+.el-upload-dragger {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  background: rgba(0, 122, 255, 0.02);
+  transition: all var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-primary);
+    background: rgba(0, 122, 255, 0.05);
+  }
+
+  &.is-dragover {
+    border-color: var(--color-primary);
+    background: rgba(0, 122, 255, 0.1);
+  }
+}
+
+// Form error state
+.el-form-item__error {
+  color: var(--color-danger);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.is-error {
+  .el-input__inner,
+  .el-textarea__inner {
+    border-color: var(--color-danger) !important;
+    box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1) !important;
+  }
+}
+
+// Better field labels
+label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+// Help text
+.el-form-item__description {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-top: 4px;
+}

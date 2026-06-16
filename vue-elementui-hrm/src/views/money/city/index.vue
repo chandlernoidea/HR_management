@@ -200,7 +200,6 @@
       <el-table
         ref="table"
         :data="table.tableData"
-        
         border
         stripe
         row-key="id"
